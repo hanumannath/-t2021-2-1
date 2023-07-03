@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void generateSeries(int x) {
+    if(x%2==0){
+            x=x-1;
+        }
+    int number = 1;
+    for (int i = 1; i <= x; i++) {
+        cout << number << " ";
+        number += 2;
+    }
+    cout << endl;
+}
+
+int main() {
+    int x;
+
+    // get input
+    cout << "enter a number: ";
+    cin >> x;
+
+    // Generate series
+    generateSeries(x);
+
+    return 0;
+}
