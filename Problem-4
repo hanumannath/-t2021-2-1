@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+unordered_map<int, int> count_multiples(vector<int> numbers, vector<int> multiples) {
+    //using hashmap because there is no dictionary in C++
+    unordered_map<int, int> counts;
+    for (int num : numbers) {
+        for (int multiple : multiples) {
+            if (num % multiple == 0) {
+                counts[multiple]++;
+            }
+        }
+    }
+    return counts;
+}
+
+int main() {
+    //vector or array instead of list
+    vector<int> numbers = {1, 2, 8, 9, 12, 46, 76, 82, 15, 20, 30};
+    vector<int> multiples = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+    unordered_map<int, int> result = count_multiples(numbers, multiples);
+    cout<<"{";
+    for (auto it = result.begin(); it != result.end(); ++it) {
+    cout << it->first << ":" << it->second;
+    if (std::next(it) != result.end()) {
+        cout << ", ";
+    }
+}
+     cout<<"}";
+    
+    return 0;
+}
